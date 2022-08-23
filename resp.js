@@ -1,19 +1,18 @@
-$(document).ready(function() {
-    var gsearch = function() {
-      var url = 'https://www.google.com' + document.getElementById('searchme').value;
-      window.open(url, 'google');
-    };
-    var glucky = function() {
-      var url = 'https://www.google.com' + document.getElementById('searchme').value + '&btnI';
-      window.open(url, 'google');
-    };
-  
-    $(".left").click(gsearch);
-    $(".right").click(glucky);
-  
-    $("#searchme").keypress(function(e) {
-      if (e.which == 13) {
-        gsearch();
-      }
-    });
-  });
+let target=document.getElementById("searchme");
+console.log(target);
+
+target.addEventListener("keypress", function(e){
+    if(e.keyCode===13){
+        let url="https://www.google.com/search?q="+target.value;
+        window.open(url,"_self")
+    }
+})
+
+document.getElementById("left").addEventListener("click", function(){
+    let url="https://www.google.com/search?q="+target.value;
+        window.open(url,"_self")
+})
+document.getElementById("right").addEventListener("click", function(){
+    let url="https://www.google.com/search?q="+target.value;
+        window.open(url,"_self")
+})
